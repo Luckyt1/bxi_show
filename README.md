@@ -2,7 +2,8 @@
 
 本项目基于 **ESP32-S3-Touch-LCD-2.1** 硬件平台，面向 480 x 480 圆形触控屏场景，提供一套可直接运行的客户演示工程和二次开发样例。项目已集成 LCD 显示、触摸、LVGL UI、传感器读取、无线扫描、SD 卡、电池电压、RTC 和蜂鸣器等板载能力，适合用于样机演示、客户验收和后续 UI 定制开发。
 
-产品资料：[ESP32-S3-Touch-LCD-2.1 产品说明书](https://docs.waveshare.net/ESP32-S3-Touch-LCD-2.1)
+- 产品资料：[ESP32-S3-Touch-LCD-2.1 产品说明书](https://docs.waveshare.net/ESP32-S3-Touch-LCD-2.1)
+- Arduino IDE 下载：[Arduino Software](https://www.arduino.cc/en/software/)
 
 ## 项目特点
 
@@ -33,6 +34,7 @@
 ```text
 .
 ├── README.md
+├── img/                              # README 操作截图
 ├── libraries/
 │   ├── lv_conf.h
 │   └── lvgl/                         # Arduino/LVGL 8.3.10 依赖库
@@ -52,35 +54,38 @@
 
 ## 快速使用
 
-### Arduino 示例
+### Arduino 编译上传
 
 适合快速修改 UI、验证交互效果或演示动画。
 
-1. 使用 Arduino IDE 打开示例：
+1. 安装 Arduino IDE。
+
+   Linux 环境如遇 AppImage 无法启动，可先安装 `libfuse2`：
+
+   ```bash
+   sudo apt update
+   sudo apt install libfuse2
+   ```
+
+2. 使用 Arduino IDE 打开示例工程：
 
    ```text
    ESP32-S3-Touch-LCD-2.1-Demo/Arduino/examples/LVGL_Arduino/LVGL_Arduino.ino
    ```
 
-2. 选择 ESP32-S3 对应开发板配置，并开启 PSRAM。
-3. 确认 LVGL 使用 8.3.10 版本。仓库已提供可用库文件：
+3. 下载并配置所需库文件。
 
-   ```text
-   ESP32-S3-Touch-LCD-2.1-Demo/Arduino/libraries/lvgl
-   libraries/lvgl
-   ```
+   ![Arduino 库文件配置](img/image3.png)
 
-4. 编译并上传后，设备会启动屏幕、触摸、板载外设和 LVGL 动画示例。
+4. 设置 Arduino 项目路径。
 
-### 预编译固件
+   ![Arduino 项目路径设置](img/image2.png)
 
-适合客户快速确认硬件和演示效果。
+5. 选择 ESP32-S3 对应开发板配置，并确认开启 PSRAM。
 
-```text
-ESP32-S3-Touch-LCD-2.1-Demo/Firmware/ESP32-S3-Touch-LCD-2.1.bin
-```
+   ![ESP32-S3 开发板配置](img/image.png)
 
-可使用 `flash_download_tool_3.9.5` 或等效 ESP32 烧录工具烧录，烧录地址为 `0x00`。
+6. 编译并上传。烧录完成后，设备会启动屏幕、触摸、板载外设和 LVGL 动画示例。
 
 ## 二次开发入口
 
@@ -102,17 +107,6 @@ ESP32-S3-Touch-LCD-2.1-Demo/Firmware/ESP32-S3-Touch-LCD-2.1.bin
   ```text
   ESP32-S3-Touch-LCD-2.1-Demo/ESP-IDF/ESP32-S3-Touch-LCD-2.1-Test/main/
   ```
-
-## 验收建议
-
-客户现场演示或交付验收时，建议依次确认：
-
-1. 屏幕上电点亮，画面显示正常。
-2. 触摸可以操作 UI 控件。
-3. 背光亮度可通过滑块调节。
-4. RTC、IMU、电池电压、SD 卡容量等数据可正常刷新。
-5. Wi-Fi/BLE 扫描数量可显示。
-6. 蜂鸣器开关交互正常。
 
 ## 注意事项
 
