@@ -65,6 +65,7 @@
    ```bash
    sudo apt update
    sudo apt install libfuse2
+   pip install pyserial
    ```
 
 2. 使用 Arduino IDE 打开示例工程：
@@ -89,7 +90,7 @@
 
 ## 二次开发入口
 
-- Arduino UI/动画入口：
+- Arduino UI/动画入口：pip install pyserial
 
   ```text
   ESP32-S3-Touch-LCD-2.1-Demo/Arduino/examples/LVGL_Arduino/LVGL_Arduino.ino
@@ -112,5 +113,5 @@
 
 - Arduino 侧建议使用 LVGL 8.3.10，仓库已附带对应版本。
 - 如果首次编译成功，后续调试中出现异常编译失败，可参考原厂说明重新解压干净工程后再编译。
-
+- 如果遇到启动不了的情况，建议关掉代理和多余的环境变量
 
